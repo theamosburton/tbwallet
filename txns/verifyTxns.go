@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
-	"tulobyte/tbfunctions"
+	"tbwallet/tbfunctions"
 
 	"github.com/chai2010/webp"
 )

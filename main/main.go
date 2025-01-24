@@ -8,9 +8,9 @@ import (
 	"os"
 	"strconv"
 
-	"tulobyte/tbfunctions"
-	"tulobyte/tbwallet"
-	"tulobyte/txns"
+	"tbwallet/tbfunctions"
+	"tbwallet/tbwallet"
+	"tbwallet/txns"
 )
 
 func main() {

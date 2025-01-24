@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"tulobyte/tbfunctions"
+	"tbwallet/tbfunctions"
 )
 
 func VerifyTxnInputs() (string, bool, map[string]string) {

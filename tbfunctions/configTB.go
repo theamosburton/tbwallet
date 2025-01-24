@@ -112,7 +112,7 @@ func LoadConfig() (Config, error) {
 	if err != nil {
 		log.Fatalf("Unable to get the user's home directory: %v", err)
 	}
-	dirName := filepath.Join(homeDir, ".config", "tulobyte")
+	dirName := filepath.Join(homeDir, ".config", "tbwallet")
 
 	filename := dirName + "/config.json"
 
@@ -136,7 +136,7 @@ func SaveConfig(config Config) error {
 	if err != nil {
 		log.Fatalf("Unable to get the user's home directory: %v", err)
 	}
-	dirName := filepath.Join(homeDir, ".config", "tulobyte")
+	dirName := filepath.Join(homeDir, ".config", "tbwallet")
 
 	filename := dirName + "/config.yaml"
 

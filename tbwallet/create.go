@@ -8,7 +8,7 @@ import (
 	"log"
 	"math/big"
 	"os"
-	"tulobyte/tbfunctions"
+	"tbwallet/tbfunctions"
 
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/tyler-smith/go-bip32"

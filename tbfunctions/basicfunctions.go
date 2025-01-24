@@ -66,7 +66,7 @@ func SavePrivateKey(filename string, privateKey string) error {
 func InitDirs(isConfigInit bool) bool {
 	homeDir, err := os.UserHomeDir()
 
-	// Create tulobyte directory in ~/.config/tulobyte
+	// Create tbwallet directory in ~/.config/tbwallet
 	if err != nil {
 		fmt.Println("Can't get user home directory")
 		log.Fatalf("Reason: %v", err)
@@ -74,75 +74,75 @@ func InitDirs(isConfigInit bool) bool {
 	}
 
 	// Create config dir
-	dirName := filepath.Join(homeDir, ".config", "tulobyte")
+	dirName := filepath.Join(homeDir, ".config", "tbwallet")
 	if _, err := os.Stat(dirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(dirName, 0755)
 		if err != nil {
-			fmt.Println("Can't create ~/.config/tulobyte")
+			fmt.Println("Can't create ~/.config/tbwallet")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
 	}
 
 	// Creating config Dir
-	configDirName := filepath.Join(homeDir, ".config", "tulobyte")
+	configDirName := filepath.Join(homeDir, ".config", "tbwallet")
 	configFile := configDirName + "/config.json"
 	if _, err := os.Stat(configFile); os.IsNotExist(err) {
 		CreateDefaultConfig(configFile)
 	}
 
 	// Creating other dirs
-	rootDirName := filepath.Join(homeDir, "tulobyte")
+	rootDirName := filepath.Join(homeDir, "tbwallet")
 	if _, err := os.Stat(rootDirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(rootDirName, 0755)
 		if err != nil {
 
-			fmt.Println("Can't create ~/tulobyte")
+			fmt.Println("Can't create ~/tbwallet")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
 	}
 	//Mainnet directories
-	mainnetDirName := filepath.Join(homeDir, "tulobyte", "mainnet")
+	mainnetDirName := filepath.Join(homeDir, "tbwallet", "mainnet")
 	if _, err := os.Stat(mainnetDirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(mainnetDirName, 0755)
 		if err != nil {
-			fmt.Println("Can't create ~/tulobyte/mainnet")
+			fmt.Println("Can't create ~/tbwallet/mainnet")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
 	}
-	txnMainDirName := filepath.Join(homeDir, "tulobyte", "mainnet", "txns")
+	txnMainDirName := filepath.Join(homeDir, "tbwallet", "mainnet", "txns")
 	if _, err := os.Stat(txnMainDirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(txnMainDirName, 0755)
 		if err != nil {
-			fmt.Println("Can't create ~/tulobyte/mainnet/txns")
+			fmt.Println("Can't create ~/tbwallet/mainnet/txns")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
 	}
 
 	//Testnet directories
-	testnetDirName := filepath.Join(homeDir, "tulobyte", "testnet")
+	testnetDirName := filepath.Join(homeDir, "tbwallet", "testnet")
 	if _, err := os.Stat(testnetDirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(testnetDirName, 0755)
 		if err != nil {
-			fmt.Println("Can't create ~/tulobyte/testnet")
+			fmt.Println("Can't create ~/tbwallet/testnet")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
 	}
-	txnTestDirName := filepath.Join(homeDir, "tulobyte", "testnet", "txns")
+	txnTestDirName := filepath.Join(homeDir, "tbwallet", "testnet", "txns")
 	if _, err := os.Stat(txnTestDirName); os.IsNotExist(err) {
 		// Directory does not exist, create it
 		err := os.Mkdir(txnTestDirName, 0755)
 		if err != nil {
-			fmt.Println("Can't create ~/tulobyte/testnet/txns")
+			fmt.Println("Can't create ~/tbwallet/testnet/txns")
 			log.Fatalf("Reason: %v", err)
 			return false
 		}
