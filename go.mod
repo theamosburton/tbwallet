@@ -4,7 +4,6 @@ go 1.23.6
 
 require (
 	github.com/btcsuite/btcd/btcec/v2 v2.3.4
-	github.com/ethereum/go-ethereum v1.14.12
 	github.com/moznion/go-unicode-east-asian-width v0.0.0-20140622124307-0231aeb79f9b
 	github.com/tyler-smith/go-bip32 v1.0.0
 	github.com/tyler-smith/go-bip39 v1.1.0
@@ -21,5 +20,9 @@ require (
 )
 
 require (
+	github.com/ethereum/go-ethereum v1.14.13
+	github.com/stretchr/testify v1.9.0 // indirect
+	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
