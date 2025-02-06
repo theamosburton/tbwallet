@@ -1,18 +1,13 @@
 package txns
 
 import (
-	"bytes"
-	"encoding/base64"
 	"fmt"
-	"image"
 	"log"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"tbwallet/tbfunctions"
-
-	"github.com/chai2010/webp"
 )
 
 func VerifyTxn(rec_address string, tx_data string, amount_hb int) (bool, string, map[string]string) {
@@ -145,7 +140,7 @@ func VerifyAddress(rec_address string) (bool, int, int, string) {
 			`)
 		return false, 0, 0, ""
 	}
-	networkType := config.RPCEndPoint
+	networkType := config.Network
 	if networkType == "mainnet" {
 		amt, txns, walletChecked := CheckMyWalletMainnet()
 		if !walletChecked {
@@ -207,39 +202,39 @@ func CheckMyWalletTestnet() (int, int, bool) {
 }
 
 // convertImageToBase64 converts an image file (including WebP) to a Base64 string.
-func ConvertImageToBase64(filePath string) (string, error) {
-	// Open the image file
-	file, err := os.Open(filePath)
-	if err != nil {
-		return "", fmt.Errorf("could not open file: %v", err)
-	}
-	defer file.Close()
-	// Decode the image to ensure it's a valid image file
-	_, _, err = image.Decode(file)
-	if err != nil {
-		// Attempt WebP decoding if general decoding fails
-		if _, err := webp.Decode(file); err == nil {
-			// WebP format detected
-		} else {
-			return "", fmt.Errorf("could not decode image: %v", err)
-		}
-	}
+// func ConvertImageToBase64(filePath string) (string, error) {
+// 	// Open the image file
+// 	file, err := os.Open(filePath)
+// 	if err != nil {
+// 		return "", fmt.Errorf("could not open file: %v", err)
+// 	}
+// 	defer file.Close()
+// 	// Decode the image to ensure it's a valid image file
+// 	_, _, err = image.Decode(file)
+// 	if err != nil {
+// 		// Attempt WebP decoding if general decoding fails
+// 		if _, err := webp.Decode(file); err == nil {
+// 			// WebP format detected
+// 		} else {
+// 			return "", fmt.Errorf("could not decode image: %v", err)
+// 		}
+// 	}
 
-	// Reset the file pointer to the beginning for reading raw bytes
-	_, err = file.Seek(0, 0)
-	if err != nil {
-		return "", fmt.Errorf("could not reset file pointer: %v", err)
-	}
+// 	// Reset the file pointer to the beginning for reading raw bytes
+// 	_, err = file.Seek(0, 0)
+// 	if err != nil {
+// 		return "", fmt.Errorf("could not reset file pointer: %v", err)
+// 	}
 
-	// Read the image file's bytes
-	buf := new(bytes.Buffer)
-	_, err = buf.ReadFrom(file)
-	if err != nil {
-		return "", fmt.Errorf("could not read file bytes: %v", err)
-	}
+// 	// Read the image file's bytes
+// 	buf := new(bytes.Buffer)
+// 	_, err = buf.ReadFrom(file)
+// 	if err != nil {
+// 		return "", fmt.Errorf("could not read file bytes: %v", err)
+// 	}
 
-	// Encode the image bytes to a Base64 string
-	base64String := base64.StdEncoding.EncodeToString(buf.Bytes())
+// 	// Encode the image bytes to a Base64 string
+// 	base64String := base64.StdEncoding.EncodeToString(buf.Bytes())
 
-	return base64String, nil
-}
+// 	return base64String, nil
+// }
